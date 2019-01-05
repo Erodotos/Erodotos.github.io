@@ -47,4 +47,20 @@ nav a{
     color: #495057;
 }
 
+/* Pictures CSS*/
+
+.gal-item{
+	overflow: hidden;
+	padding: 8px;
+}
+.gal-item .box{
+	height: 100%;
+	overflow: hidden;
+}
+.box img{
+	height: 100%;
+	width: auto;
+	object-fit:cover;
+}
+
 
