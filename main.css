@@ -31,6 +31,7 @@ body{
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
 
 footer{
@@ -62,6 +63,28 @@ nav a{
 	height: 100%;
 	width: auto;
 	object-fit:cover;
+}
+
+/*Projects CSS*/
+
+.full-width{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.btn-projects{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.progressbar-button-aligned{    
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 30px; 
+    margin-top: 7px; 
 }
 
 
