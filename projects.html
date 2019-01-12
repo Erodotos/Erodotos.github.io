@@ -13,6 +13,11 @@
   <!--MY CSS-->
   <link rel="stylesheet" href="main.css">
 
+  <!--Fontawsome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+
+
 
   <title>Erodotos Demetriou</title>
 </head>
@@ -41,47 +46,69 @@
       <p class="p-justified">Well, in this section you can findout some of my open source work. There are several small
         projects of mine as well as some programs i had to code for varius univesity assignments.</p>
       <br>
-      <br>
+
     </div>
 
     <div class="row">
 
       <div class="accordion full-width top" id="accordionExample">
+
+
+
         <div class="card">
+
           <div class="card-header btn-toolbar" id="headingOne">
+
             <h2 class="mb-0 col-lg-6">
               <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseOne"
                 aria-expanded="true" aria-controls="collapseOne">
-                #1 NASA image of the day / Desktop background
+                NASA image of the day / Desktop background
               </button>
             </h2>
-            <div class="progress progressbar-button-aligned col-lg-6">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-                aria-valuemin="0" aria-valuemax="100" style="width: 75%">75% Completed</div>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-orange" role="progressbar"
+                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">75% Completed</div>
             </div>
+
+
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
           </div>
 
           <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
 
+
             </div>
           </div>
 
-
         </div>
+
         <div class="card">
           <div class="card-header btn-toolbar" id="headingTwo">
 
             <h2 class="mb-0 col-lg-6">
               <button class="btn btn-link collapsed btn-projects" type="button" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="false" aria-controls="collapseTwo">
-                #2 Prediction Counter Android Application
+                Prediction Counter Android Application
               </button>
             </h2>
 
-            <div class="progress progressbar-button-aligned col-lg-6">
+            <div class="progress progressbar-button-aligned col-lg-5">
               <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
                 aria-valuemin="0" aria-valuemax="100" style="width: 75%">75% Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
             </div>
 
           </div>
@@ -90,27 +117,234 @@
             </div>
           </div>
         </div>
+
         <div class="card">
           <div class="card-header btn-toolbar" id="headingThree">
 
             <h2 class="mb-0 col-lg-6">
               <button class="btn btn-link collapsed btn-projects" type="button" data-toggle="collapse" data-target="#collapseThree"
                 aria-expanded="false" aria-controls="collapseThree">
-                #3 WAV Audio Library in C
+                WAV Sound Library
               </button>
             </h2>
 
-            <div class="progress progressbar-button-aligned col-lg-6">
+            <div class="progress progressbar-button-aligned col-lg-5">
               <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
                 aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
             </div>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
+              This is a program which can apply some basic filters to a .wav audio file.
+              <br>
+              <br>
+              SOFTWARE MANUAL
+              <br>
+              <br>
+              NAME wavengine - edits .wav files
+              <br>
+              <br>
+              SYNOPSIS wavengine [OPTION] [FILE]...
+              <br>
+              <br>
+              DESCRIPTION Available Options
+              <br>
+              <br>
+              -man, print this manual
+              <br>
+              -list, prints on screen the file header/s
+              <br>
+              -mono, takes 2 .wav files and converts them to use only one channel
+              <br>
+              -mix, combines the audio from 2 audio files
+              <br>
+              -chop, cut the sound on specific borders
+              <br>
+              -reverse, generate audio file with the audio backwards
+              <br>
+              -similarity, checks if 2 .wav files are similar using Euclidean and LCSS Algorithms
+              <br>
+              -encodeText, hides a text message within the audio file
+              <br>
+              -decodeText, extract hidden message from the audio file
+              <br>
+              -delay , apply a simple echo filter on the audio file
 
             </div>
           </div>
         </div>
+
+        <div class="card">
+
+          <div class="card-header btn-toolbar" id="headingFour">
+
+            <h2 class="mb-0 col-lg-6">
+              <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="true" aria-controls="collapseFour">
+                N-Puzzle
+              </button>
+            </h2>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
+          </div>
+
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              This is a program which represent N-Shift puzzle game with auto-solver.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-header btn-toolbar" id="headingFive">
+
+            <h2 class="mb-0 col-lg-6">
+              <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseFive"
+                aria-expanded="true" aria-controls="collapseFive">
+                LCSS Algorithm
+              </button>
+            </h2>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
+          </div>
+
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              Longest common subsequence implementation using dynamic programming in C language.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-header btn-toolbar" id="headingSix">
+
+            <h2 class="mb-0 col-lg-6">
+              <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseSix"
+                aria-expanded="true" aria-controls="collapseSix">
+                Website Ranking
+              </button>
+            </h2>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated  bg-success" role="progressbar" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
+          </div>
+
+          <div id="collapseSix" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              Toy example on how websites are ranked on the web.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-header btn-toolbar" id="headingSeven">
+
+            <h2 class="mb-0 col-lg-6">
+              <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseSeven"
+                aria-expanded="true" aria-controls="collapseSeven">
+                Compare text file lines
+              </button>
+            </h2>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
+          </div>
+
+          <div id="collapseSeven" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              The program takes as input at least 2 commandline arguments. 2 files to compare. Also the program can
+              take optional inputs which offer further functionalities to the user. These are : /nc (no capitals) /s
+              (print first and last line between non equal lines) /ln (print line numbers).
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <div class="card-header btn-toolbar" id="headingEight">
+
+            <h2 class="mb-0 col-lg-6">
+              <button class="btn btn-link btn-projects" type="button" data-toggle="collapse" data-target="#collapseEight"
+                aria-expanded="true" aria-controls="collapseEight">
+                Kenken Puzzle
+              </button>
+            </h2>
+
+            <div class="progress progressbar-button-aligned col-lg-5">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="width: 100%">Completed</div>
+            </div>
+
+            <div class="col-lg-1" style="margin-top:4px;">
+              <a class="btn btn-primary" href="#" role="button">
+                Code
+              </a>
+            </div>
+
+          </div>
+
+          <div id="collapseEight" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              This program lunches a game called KenKen Puzzle. KenKen or KenDoku are trademarked
+              names for a style of arithmetic and logic puzzle invented in 2004 by Japanese math
+              teacher Tetsuya Miyamoto.
+            </div>
+          </div>
+
+        </div>
+
+
       </div>
 
     </div>
