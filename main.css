@@ -92,4 +92,14 @@ nav a{
 
 /*Blog CSS */
 
+h4 a{
+    color: #495057;
+    text-decoration: underline;
+}
 
+.contact-panel{
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    background: #f1f1f1;
+}
