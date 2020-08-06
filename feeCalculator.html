@@ -16,18 +16,27 @@
 
     <div class="container">
       <div class="row" style="padding-top: 50px;">
-        <div class="col-4 text-right">
+        <div class="col-2 text-center">
           <h3>Enter Liters</h3>
         </div>
-        <div class="col-3 text-center">
-          <input id="liters" type="text" class="form-control">
+        <div class="col-2 text-center">
+          <input id="catA" placeholder="Cat. A" type="text" class="form-control">
+        </div>
+        <div class="col-2 text-center">
+          <input id="catB" placeholder="Cat. B" type="text" class="form-control">
+        </div>
+        <div class="col-2 text-center">
+          <input id="catC" placeholder="Cat. C" type="text" class="form-control">
+        </div>
+        <div class="col-2 text-center">
+          <input id="gas" placeholder="Gas" type="text" class="form-control">
         </div>
         <div class="col-1 text-left">
           <button type="button" class="btn btn-primary" onclick="calculate()">Calculate</button>
         </div>
-        <div class="col-4">
-          <div class="ml-3 pl-2" style= " height: 40px; width: 120px; border-style: solid; border-radius: 10px; border-color: grey;">
-            <h3>€</h3>
+        <div class="col-1">
+          <div class="ml-3 pl-2" style= " height: 40px; width: 160px; border-style: solid; border-radius: 10px; border-color: grey;">
+            <h3 id="final-price">€</h3>
           </div>
         </div>
       </div>
