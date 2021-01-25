@@ -44,7 +44,7 @@ hr {
     background: rgb(0, 0, 0);
 }
 
-/* Posts */
+/* Posts List */
 
 .post-title{
     font-style:italic;
@@ -61,4 +61,22 @@ hr {
     bottom: 0;
     width: 100%;
     height: 100px;
+}
+
+
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+}
+  
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+  
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
 }
