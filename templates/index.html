@@ -25,75 +25,70 @@
 
 <body>
 
-  <div>
-
-    <div class="content-wrap">
-        <!-- Header Section -->
-        <section>
-          <div class="container header">
-            <div class="row" style="padding-top: 50px;">
-              <div class="col-8 my-auto">
-                <h1>Erodotos Demetriou</h1>
-              </div>
-              <div class="nav-link col-1 my-auto text-center">
-                <a href="./index.html">POSTS</a>
-              </div>
-              <div class="nav-link col-1 my-auto text-center">
-                <a href="./assets/Erodotos Demetriou CV.pdf" target="_blank">CV</a>
-              </div>
-              <div class="nav-link col-1 my-auto text-center">
-                <a href="https://github.com/Erodotos" target="_blank">GITHUB</a>
-              </div>
-              <div class="nav-link col-1 my-auto text-center">
-                <a href="https://twitter.com/erodotosd" target="_blank">TWITTER</a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Intro Section -->
-        <section>
-          <div class="container">
-            <br>
-            <br>
-            <p class="p-justified">Hello! My name is <strong>Erodotos Demetriou</strong> and I am a Computer Science Student
-              at the University
-              Of Cyprus, Nicosia. In my free time, I watch movies and I play mind/strategy games. I also enjoy traveling
-              around the world and learn about other cultures. Currently, I am interested in <strong>Blockchain
-                Technologies</strong> as I
-              believe that they might have a potential impact on our world. Feel free to get in touch if you have questions or
-              just want to share some ideas. </p>
-              <br>
-              <hr/>
-          </div>
-        </section>
-        
-        <!-- Posts -->
-        <section class="content">
-          {{range .}}
-            <div class="container mt-5">
-              <div class="row">
-                <div class="col-12">
-                  <h2 class="post-title"><a href="{{.Link}}.html">{{ .Metadata.Title}}</a></h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">{{.Metadata.Day_Number}} {{.Metadata.Month}} {{.Metadata.Year}} |  {{.Metadata.Day_Text}}</div>
-              </div>
-            </div>
-          {{end}}
-        </section>
-    </div>
-
-    <footer class="footer">
-      <div class="row text-center">
-        <div class="col-4"></div>
-        <div class="col-4 my-auto"><p>Website developed by <a href="../../index.html">Erodotos Demetriou</a> | Last Update 2021</p></div>
-        <div class="col-4"></div>
+  <!-- Header Section -->
+  <section>
+    <div class="container header">
+      <div class="row" style="padding-top: 50px;">
+        <div class="col-8 my-auto">
+          <h1>Erodotos Demetriou</h1>
+        </div>
+        <div class="nav-link col-1 my-auto text-center">
+          <a href="./index.html">POSTS</a>
+        </div>
+        <div class="nav-link col-1 my-auto text-center">
+          <a href="./assets/Erodotos Demetriou CV.pdf" target="_blank">CV</a>
+        </div>
+        <div class="nav-link col-1 my-auto text-center">
+          <a href="https://github.com/Erodotos" target="_blank">GITHUB</a>
+        </div>
+        <div class="nav-link col-1 my-auto text-center">
+          <a href="https://twitter.com/erodotosd" target="_blank">TWITTER</a>
+        </div>
       </div>
-    </footer>
-    
-  </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section>
+    <div class="container">
+      <br>
+      <br>
+      <p class="p-justified">Hello! My name is <strong>Erodotos Demetriou</strong> and I am a Computer Science Student
+        at the University
+        Of Cyprus, Nicosia. In my free time, I watch movies and I play mind/strategy games. I also enjoy traveling
+        around the world and learn about other cultures. Currently, I am interested in <strong>Blockchain
+          Technologies</strong> as I
+        believe that they might have a potential impact on our world. Feel free to get in touch if you have questions or
+        just want to share some ideas. </p>
+        <br>
+        <hr/>
+    </div>
+  </section>
+  
+  <!-- Posts -->
+  <section class="content">
+    {{range .}}
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="post-title"><a href="{{.Link}}.html">{{ .Metadata.Title}}</a></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">{{.Metadata.Day_Number}} {{.Metadata.Month}} {{.Metadata.Year}} |  {{.Metadata.Day_Text}}</div>
+        </div>
+      </div>
+    {{end}}
+  </section>
+
+  <!-- Footer -->
+  <section>
+    <div class="footer row text-center">
+      <div class="col-4"></div>
+      <div class="col-4 my-auto"><p>Website developed by <a href="./index.html">Erodotos Demetriou</a> | Last Update 2021</p></div>
+      <div class="col-4"></div>
+    </div>
+  </section>
     
 
 
