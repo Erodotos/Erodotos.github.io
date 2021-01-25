@@ -148,13 +148,11 @@ func (g *Generator) GeneratePosts(t *template.Template, p []Post) error {
 		filePath := filepath.Join(post.Link + ".html")
 		f, err := os.Create(filePath)
 		if err != nil {
-			fmt.Println(1, err)
 			return fmt.Errorf("Error creating file %s: %v", filePath, err)
 		}
 
 		w := bufio.NewWriter(f)
 		if err := t.Execute(w, post); err != nil {
-			fmt.Println(2, err)
 			return fmt.Errorf("Error executing template %s : %v", filePath, err)
 		}
 
