@@ -1,106 +1,64 @@
 body{
-    background: white; 
-    font-family: monospace;
-    font-size: 16px;
-    padding-left: 10px;
-    padding-right: 10px;
+    background: #FAFAFA; 
+    font-family: Ubuntu, sans-serif;
+    font-size: 18px;
 }
 
 .p-justified{
     text-align: justify;
 }
 
-.leftSection{
-    margin-top: 100px;
-}
+/* Header */
 
-.rightSection{
-    margin-top: 25px;
-}
-
-.navBarVertical{
+.header a{
+    color: #333;
     font-size: 18px;
-    font-weight: bold;
-    padding-top: 60px;
-    padding-left: 30px;
-    padding-right: 20px;     
 }
 
-.navBar{
-    text-align: center;
-    font-size: 18px; 
-    font-weight: bold;
-    margin-top: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
+.header a:link{
+    text-decoration: none;
 }
 
-footer{
+.nav-link:after {
+    position: absolute;
+    bottom: 0;
     left: 0;
-    padding-top: 40px;
-    padding-bottom: 10px;
-    width: 100%;
-    text-align: center;
-}
-
-.responsive-img{
-    margin: 0 auto;
-}
-
-nav a{
-    color: #495057;
-}
-
-/* Pictures CSS*/
-
-.gal-item{
-	overflow: hidden;
-	padding: 8px;
-}
-.gal-item .box{
-	height: 100%;
-	overflow: hidden;
-}
-.box img{
-	height: 100%;
-	width: auto;
-	object-fit:cover;
-}
-
-/*Projects CSS*/
-
-.full-width{
-    width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.btn-projects{
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #495057;
-}
-
-.progressbar-button-aligned{    
-    padding-left: 0px;
-    padding-right: 0px;
-    height: 30px; 
-    margin-top: 7px; 
-}
-
-
-/*Blog CSS */
-
-h4 a{
-    color: #495057;
-    text-decoration: underline;
-}
-
-.contact-panel{
+    right: 0;
     margin: auto;
-    padding: 30px;
-    text-align: center;
-    background: #f1f1f1;
+    background-color: red;
+    color: transparent;
+    width: 0%;
+    content: '';
+    height: 2px;
+    transition: all 0.5s;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+/* intro */
+
+hr {
+    height: 2px;
+    background: rgb(0, 0, 0);
+}
+
+/* Posts */
+
+.post-title{
+    font-style:italic;
+}
+
+.post-title a{
+    color: rgba(255, 0, 0, 0.692);
+}
+
+/* Footer */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
 }
