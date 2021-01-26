@@ -26,7 +26,6 @@ type Post struct {
 		Day_Text   string `json:"day_text"`
 	}
 	Link string
-	// ContentsLink template.HTML
 }
 
 func New() *Generator {
@@ -46,17 +45,6 @@ func newPost(path string) (Post, error) {
 	if err != nil {
 		return post, fmt.Errorf("error reading yml in %s: %v", filePath, err)
 	}
-
-	// filePath = filepath.Join(path, "contents.md")
-	// contents, err := ioutil.ReadFile(filePath)
-	// if err != nil {
-	// 	return post, fmt.Errorf("error while reading file %s: %v", filePath, err)
-	// }
-	// html := blackfriday.MarkdownCommon(contents)
-	// if err != nil {
-	// 	return post, fmt.Errorf("error during syntax highlighting of %s: %v", filePath, err)
-	// }
-	// post.Contents = template.HTML(string(html))
 
 	post.Link = "./posts/post" + strconv.Itoa(post.Metadata.Id) + "/" + post.Metadata.Title
 
@@ -97,7 +85,7 @@ func (g *Generator) LoadPosts() ([]Post, error) {
 	}
 
 	sort.Slice(posts, func(i, j int) bool {
-		return posts[i].Metadata.Id < posts[j].Metadata.Id
+		return posts[i].Metadata.Id > posts[j].Metadata.Id
 	})
 
 	return posts, nil

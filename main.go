@@ -6,14 +6,13 @@ import (
 )
 
 func main() {
+
+	//Generate Site
 	g := siteGenerator.New()
 	posts, err := g.LoadPosts()
 	if err != nil {
 		fmt.Println(err)
-	}
 
-	for _, post := range posts {
-		fmt.Println(post)
 	}
 
 	tmpl, err := g.LoadTemplate("index.html")
@@ -29,4 +28,5 @@ func main() {
 	}
 
 	g.GeneratePosts(tmpl, posts)
+
 }
