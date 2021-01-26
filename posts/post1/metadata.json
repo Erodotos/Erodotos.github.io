@@ -1,8 +1,8 @@
 {
     "id":1,
-    "title" : "Post1",
-    "day_number" : "22",
+    "title" : "A simple static site generator in Golang",
+    "day_number" : "26",
     "month" : "January",
     "year" : "2021" ,
-    "day_text": "Firday"
+    "day_text": "Tuesday"
 }
