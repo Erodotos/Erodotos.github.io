@@ -38,8 +38,13 @@ We will be using JSON files to encapsulate the metadata of each article. I will 
 
 HTML templates are necessary sources that will be given as input to the **static site generator**. My personal website has 2 main templates. The first regards the index.html, which presents a list of all available posts, and the second concerns the structure of a page presenting an article. The templates are designed according to the *Golang* package [template/html](https://golang.org/pkg/html/template/). To use this package, we have to include a special syntax throughout the HTML. Below you can view the syntax injected into my HTML code for both index.html and post.html templates.
 
+&nbsp; 
 
-``` 
+The posts section below illustrates a list of articles. The list will be generated using a loop statement as shown in the brackets {{range .}} ... {{end}}.
+
+&nbsp; 
+
+```html
 <section class="content">
     {{range .}}
         <div class="container mt-5">
@@ -57,73 +62,113 @@ HTML templates are necessary sources that will be given as input to the **static
     {{end}}
 </section>
 ```
-Post section illustrates the list of  articles. The list will be generated using a loop statement as shown in the brackets {{range .}} ... {{end}}.
 
+&nbsp; 
 
-```
+The code below shows how Markdown files are included as a source into the website for consumption, using the *zero-md* module.
+
+&nbsp; 
+
+```html
 <section class="content">
     <div class="container mt-5">
         <zero-md src="./{{.Metadata.Title}}.md"></zero-md>
     </div>
 </section>
 ```
+
+&nbsp; 
+
 #### Step 2 - Implementing the generator
 
-```
+&nbsp; 
+
+The generator performs 3 simple tasks.
++ Loads Posts from file.
++ Load Templates from file.
++ Generate website HTML files according to the Posts and Templates.
+
+The code below depicts these tasks.
+
+&nbsp; 
+
+
+```go
 func main() {
 
-	//Generate Site
+	// Create generator instance
 	g := siteGenerator.New()
+
+    // Load posts
 	posts, err := g.LoadPosts()
 	if err != nil {
 		fmt.Println(err)
-
 	}
 
+    //Load index.html template
 	tmpl, err := g.LoadTemplate("index.html")
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	g.GenerateIndex(tmpl, posts)
+    // Generate index.html file
+	err = g.GenerateIndex(tmpl, posts)
+    if err != nil {
+		fmt.Println(err)
+	}
 
+    //Load post.html template
 	tmpl, err = g.LoadTemplate("post.html")
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	g.GeneratePosts(tmpl, posts)
+    // Generate post.html file
+	err = g.GeneratePosts(tmpl, posts)
+    if err != nil {
+		fmt.Println(err)
+	}
 
 }
 ```
 
-```
-// Load Posts from file
+&nbsp; 
 
+The code below describes in further detail how generator functions are implemented. Also, I have included comments that allow you to understand it effortlessly.
+
+&nbsp; 
+
+```go
 func (g *Generator) LoadPosts() ([]Post, error) {
 
+    // Set the path for the root directory, where posts are located
 	path := filepath.Join("posts")
 	var postFolders []string
 
+    // Open the root directory
 	dir, err := os.Open(path)
 	if err != nil {
 		return nil, fmt.Errorf("error accessing directory %s: %v", path, err)
 	}
 	defer dir.Close()
 
+    // Read all post directories. Each post is encapsulated in a different folder.
 	files, err := dir.Readdir(-1)
 	if err != nil {
 		return nil, fmt.Errorf("error reading contents of directory %s: %v", path, err)
 	}
 
+    // Append each directory to an array
 	for _, file := range files {
 		if file.IsDir() && file.Name()[0] != '.' {
 			postFolders = append(postFolders, filepath.Join(path, file.Name()))
 		}
 	}
 
+    // Read all posts from the directories and parse them into an array of Post structs
 	var posts []Post
 	for _, folder := range postFolders {
+        // Create a new Post struct
 		post, err := newPost(folder)
 		if err != nil {
 			return nil, fmt.Errorf("error reading post contents %s: %v", folder, err)
@@ -131,6 +176,7 @@ func (g *Generator) LoadPosts() ([]Post, error) {
 		posts = append(posts, post)
 	}
 
+    // Sort posts according to their ID
 	sort.Slice(posts, func(i, j int) bool {
 		return posts[i].Metadata.Id > posts[j].Metadata.Id
 	})
@@ -139,10 +185,15 @@ func (g *Generator) LoadPosts() ([]Post, error) {
 }
 ```
 
-```
-func (g *Generator) LoadTemplate(templateName string) (*template.Template, error) {
-	path := filepath.Join("templates", templateName)
+&nbsp; 
 
+```go
+func (g *Generator) LoadTemplate(templateName string) (*template.Template, error) {
+    
+    // Set the path for the directory, where the given template is located
+    path := filepath.Join("templates", templateName)
+
+    // Load the template from file and return it
 	t, err := template.ParseFiles(path)
 	if err != nil {
 		log.Panicln(err)
@@ -153,19 +204,26 @@ func (g *Generator) LoadTemplate(templateName string) (*template.Template, error
 }
 ```
 
-```
+&nbsp; 
+
+```go
 func (g *Generator) GenerateIndex(t *template.Template, p []Post) error {
+
+    // Set the export path and file name for the index.html generated code
 	filePath := filepath.Join("index.html")
 	f, err := os.Create(filePath)
 	if err != nil {
 		return fmt.Errorf("error creating file %s: %v", filePath, err)
 	}
 
-	w := bufio.NewWriter(f)
+    // Create a buffer to store the generated site temporarily
+    w := bufio.NewWriter(f)
+    // Use the Execute() function provided by the template/html package to generate the webpage
 	if err := t.Execute(w, p); err != nil {
 		return fmt.Errorf("error executing template %s : %v", filePath, err)
 	}
 
+    // Flush the generated file on the disk
 	if err := w.Flush(); err != nil {
 		return fmt.Errorf("error writing file %s: %v", filePath, err)
 	}
@@ -175,24 +233,29 @@ func (g *Generator) GenerateIndex(t *template.Template, p []Post) error {
 }
 ```
 
-```
-// Create individual post pages
+&nbsp; 
 
+
+```go
 func (g *Generator) GeneratePosts(t *template.Template, p []Post) error {
 
+    // Receive an array of Posts and for each post generate a .html file
 	for _, post := range p {
-		fmt.Println(post.Link)
+        // Set the export path and file name for the index.html generated code
 		filePath := filepath.Join(post.Link + ".html")
 		f, err := os.Create(filePath)
 		if err != nil {
 			return fmt.Errorf("Error creating file %s: %v", filePath, err)
 		}
 
-		w := bufio.NewWriter(f)
+        // Create a buffer to store the generated site temporarily
+        w := bufio.NewWriter(f)
+        // Use the Execute() function provided by the template/html package to generate the webpage
 		if err := t.Execute(w, post); err != nil {
 			return fmt.Errorf("Error executing template %s : %v", filePath, err)
 		}
 
+        // Flush the generated file on the disk
 		if err := w.Flush(); err != nil {
 			return fmt.Errorf("Error writing file %s: %v", filePath, err)
 		}
@@ -205,6 +268,36 @@ func (g *Generator) GeneratePosts(t *template.Template, p []Post) error {
 
 #### Step 3 - Use Markdown and JSON files to write an article
 
-## Conclusions
+&nbsp; 
+
+As I have mentioned before, an article's body is actually represented using Markdown (a simple markup language). The picture below depicts an example of writing a document using Markdown. 
+
+![Markdown Example](https://miro.medium.com/max/1400/0*lzRmzAy5OICef7rK.png)
+
+Additionally, I use a simple JSON file to declare some metadata for each post. You can view below an example of metadata used to generate this article.
+
+```json
+{
+    "id":1,
+    "title" : "A simple static site generator in Golang",
+    "day_number" : "26",
+    "month" : "January",
+    "year" : "2021" ,
+    "day_text": "Tuesday"
+}
+```
+
+&nbsp; 
+
+## Complete Source Code of the Project [HERE](https://github.com/Erodotos/Erodotos.github.io)
+
+&nbsp; 
 
 ## References
+
+&nbsp; 
+
++ [https://en.wikipedia.org/wiki/Static_web_page](https://en.wikipedia.org/wiki/Static_web_page)
++ [https://golang.org/pkg/html/template/](https://golang.org/pkg/html/template/)
++ [https://www.markdownguide.org/basic-syntax/#code](https://www.markdownguide.org/basic-syntax/#code)
++ [https://www.zupzup.org/static-blog-generator-go/index.html](https://www.zupzup.org/static-blog-generator-go/index.html)
