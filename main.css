@@ -1,5 +1,4 @@
 body{
-    background: #FAFAFA; 
     font-family: Ubuntu, sans-serif;
     font-size: 18px;
 }
@@ -10,31 +9,9 @@ body{
 
 /* Header */
 
-.header a{
-    color: #333;
-    font-size: 18px;
-}
-
-.header a:link{
-    text-decoration: none;
-}
-
-.nav-link:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    background-color: red;
-    color: transparent;
-    width: 0%;
-    content: '';
-    height: 2px;
-    transition: all 0.5s;
-}
-
-.nav-link:hover:after {
-    width: 100%;
+.navigation-links a {
+    color: black;
+    text-decoration: underline;
 }
 
 /* intro */
