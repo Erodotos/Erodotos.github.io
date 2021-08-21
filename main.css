@@ -1,11 +1,12 @@
-body{
+body {
     font-family: Ubuntu, sans-serif;
     font-size: 18px;
 }
 
-.p-justified{
+.p-justified {
     text-align: justify;
 }
+
 
 /* Header */
 
@@ -14,6 +15,7 @@ body{
     text-decoration: underline;
 }
 
+
 /* intro */
 
 hr {
@@ -21,23 +23,35 @@ hr {
     background: rgb(0, 0, 0);
 }
 
+
 /* Posts List */
 
-.post-title{
-    font-style:italic;
+.post-title {
+    font-style: italic;
 }
 
-.post-title a{
+.post-title a {
     color: rgba(255, 0, 0, 0.692);
 }
 
+
 /* Footer */
 
-.footer {
+
+/* .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 150px;
+} */
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 20rem;
 }
 
 .post-footer {
