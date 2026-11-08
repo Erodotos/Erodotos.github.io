@@ -142,6 +142,7 @@ h1 {
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); }
 .site-footer .wrap { padding-block: 20px; font-size: 13px; color: var(--muted); }
+.site-footer a { color: var(--muted); text-underline-offset: 3px; }
 
 @media (max-width: 600px) {
   .nav { order: 3; flex-basis: 100%; }
