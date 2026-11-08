@@ -1,5 +1,5 @@
 /* Erodotos Demetriou — personal site
-   IDE-inspired, monospace, light and dark themes. */
+   IDE-inspired, monospace, light theme. */
 
 :root {
   --bg: #fbfbfa;
@@ -12,32 +12,6 @@
   --string: #1c7a3d;
   --font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0e1116;
-    --fg: #e6e9ee;
-    --body: #b9c1cc;
-    --muted: #8a94a3;
-    --line: #252b34;
-    --accent: #6cb6ff;
-    --keyword: #c79bf2;
-    --string: #8bd49c;
-    color-scheme: dark;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #0e1116;
-  --fg: #e6e9ee;
-  --body: #b9c1cc;
-  --muted: #8a94a3;
-  --line: #252b34;
-  --accent: #6cb6ff;
-  --keyword: #c79bf2;
-  --string: #8bd49c;
-  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -97,20 +71,6 @@ a:hover { opacity: 0.8; }
   text-decoration: underline;
   text-underline-offset: 6px;
 }
-.theme-toggle {
-  font: inherit;
-  font-size: 16px;
-  line-height: 1;
-  color: var(--muted);
-  background: transparent;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  cursor: pointer;
-}
-.theme-toggle:hover { color: var(--fg); }
 
 /* Main content */
 main { flex: 1 0 auto; }
