@@ -5,7 +5,7 @@ Personal website of Erodotos Demetriou, served by GitHub Pages.
 Plain HTML and CSS, no build step:
 
 - `index.html`: landing page
-- `cv.html`: CV (the PDF download is `assets/Erodotos Demetriou CV.pdf`)
+- `assets/Erodotos Demetriou CV.pdf`: CV, downloaded directly by the "cv" nav link
 - `publications.html`, `engagements.html`: publications, talks and hackathons
 - `css/style.css`: shared styles
 
